@@ -1,0 +1,55 @@
+<%- include ("./partials/header") %>
+<%- include ("./nav") %>
+<div class="form-container">
+  <h2 class="form-item" id="h2-signup">LOG IN</h2>
+  <form class="form-item" id="form">
+    
+    
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required>
+    <div class="error-username"></div>
+    
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <div class="error-password"></div>
+    
+
+    <button class="btn btn-outline-secondary">Submit</button>
+  </form>
+</div>
+
+<script>
+  const form = document.querySelector("#form")
+  
+  const passwordError = document.querySelector(".error-password")
+  const usernameError = document.querySelector(".error-username")
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    passwordError.innerHTML = ""
+    usernameError.innerHTML = ""
+    const password = document.getElementById("password").value
+    const username = document.getElementById("username").value
+    try {
+      const result = await fetch("/login", {
+      method: "POST",
+      body: JSON.stringify({password,username}),
+      headers: {"Content-Type":"application/json"}
+    })
+      const data = await result.json()
+      console.log(data)
+      if(data.errors){
+        passwordError.innerHTML = data.errors.password
+        usernameError.innerHTML = data.errors.username
+      }
+      if(data.user){
+        location.assign("/avatar")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  })
+</script>
+
+
+
+<%- include ("./partials/footer") %>

@@ -1,0 +1,100 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,body,h1,h2,h3,h4,h5,p,ul,li{
+  font-family: 'Jura', sans-serif;
+}
+img{
+  max-width: 200px;
+}
+
+/* SIGNUP / LOGIN */
+.form-container{
+  border: 2px grey solid;
+  border-radius: 2%;
+  width: 40vw;
+  margin: 15vh auto;
+}
+.form-item{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+#h2-signup{
+  text-align: center;
+  padding-bottom: 0;
+}
+input{
+  padding: 10px;
+}
+label{
+  padding: 10px 0;
+}
+.btn{
+  margin: 10px;
+  
+}
+.error-email,.error-password,.error-username{
+  color: red;
+  font-size: 0.8rem;
+  text-align: left;
+}
+/* HOMEPAGE */
+.home-container{
+  border: 2px grey solid;
+  border-radius: 2%;
+  width: 40vw;
+  margin: 15vh auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-container-item{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.home-title{
+  text-align: center;
+}
+/* PASSWORDS */
+.generator{ 
+  margin: 0 auto;
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 3rem;
+}
+.form{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  column-gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.character-amount-container{
+  display: flex;
+  align-items: center;
+}
+.number-input{
+  width: 4rem;
+}
+.password-display{
+  background-color: #0d6efd;
+  color: white;
+  min-width: 400px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* only button */
+.generator-btn{
+  grid-column: span 2;
+}
