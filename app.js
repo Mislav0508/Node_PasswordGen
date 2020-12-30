@@ -5,11 +5,12 @@ const mongoose = require("mongoose")
 const morgan = require("morgan")
 const authRoutes = require("./routes/routes")
 let cookies = require("cookie-parser")
+require("dotenv/config")
 
-const dbURI = "mongodb+srv://Mislav0508:05080639@nodecluster.fxfff.mongodb.net/1projectAuth?retryWrites=true&w=majority"
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
-.then((result) => app.listen(PORT)) 
-.catch((err) => console.log(err))
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
+  .then((result) => app.listen(PORT))
+  .catch((err) => console.log(err))
+
 
 app.set("view engine", "ejs")
 app.use(express.static("public"))
